@@ -1,0 +1,43 @@
+# 這個檔案可以藉由指令 `doxygen -g` 來產生
+# 這檔案只是擷取其中幾個設定來用
+# 沒有設定到的會被忽略或是使用預設值
+# 由於在CMakeLists.txt內呼叫了configure_file指令，因此被@@包圍的變數，會被處裡取代
+
+
+# ============= 最基礎的設定值 ============= 
+
+# 要輸出說明文件到哪裏
+OUTPUT_DIRECTORY       = @CMAKE_CURRENT_BINARY_DIR@/doc_doxygen/
+
+# 輸入(要處理哪些資料夾底下的檔案)
+INPUT                  = @CMAKE_CURRENT_SOURCE_DIR@
+
+
+# ============= 進階額外參數 ============= 
+
+# 專案名稱，會一直出現在頁面的最上方
+PROJECT_NAME           = "Doxygen使用範例 (使用cmake)"
+
+# 有關此專案的簡短敘述，會出在專案名稱底下
+PROJECT_BRIEF          = "這個專案教你如何透過cmake來呼叫Doxygen自動產生說明文件"
+
+# 設定說明文件的首頁
+USE_MDFILE_AS_MAINPAGE = README.md
+
+# 說明文件中，顯示檔案路徑時，包含子資料夾名稱(FULL_PATH_NAMES必須是YES)
+FULL_PATH_NAMES        = YES
+RECURSIVE              = YES
+STRIP_FROM_PATH        = @CMAKE_CURRENT_SOURCE_DIR@
+
+# 說明文件中，include要包含子資料夾
+STRIP_FROM_INC_PATH    = @CMAKE_CURRENT_SOURCE_DIR@
+
+# 要不要為定義在 .cpp .c 裡面的class和struct建立說明文件
+EXTRACT_LOCAL_CLASSES  = NO
+
+EXAMPLE_PATH           = @CMAKE_CURRENT_SOURCE_DIR@
+#EXAMPLE_PATTERNS       = *
+EXAMPLE_RECURSIVE      = YES
+
+# 要不要產生Latex的說明文件
+GENERATE_LATEX         = NO
